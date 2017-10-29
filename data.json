@@ -1,27 +1,29 @@
 [
   {
     "name" : "Relativity Document",
+    "pageNum" : 10,
     "path" : "pdf/relativity.pdf",
     "image" : null
   },
   {
     "name" : "Clean Code",
+    "pageNum" : 20,
     "path" : "pdf/CleanCode.pdf",
     "image" : null,
     "notes": [
       {
         "page" : 1,
-        "note" :"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur dicta dolores ipsam iusto nisi nobis pariatur sit sunt veniam! Ad, aliquam error et ipsam nam nobis officia quis quisquam.",
+        "note" :"Page 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur dicta dolores ipsam iusto nisi nobis pariatur sit sunt veniam! Ad, aliquam error et ipsam nam nobis officia quis quisquam.",
         "insertDate" : "today 10am"
       },
       {
         "page" : 1,
-        "note" :"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur dicta dolores ipsam iusto nisi nobis pariatur sit sunt veniam! Ad, aliquam error et ipsam nam nobis officia quis quisquam.",
+        "note" :"Page 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur dicta dolores ipsam iusto nisi nobis pariatur sit sunt veniam! Ad, aliquam error et ipsam nam nobis officia quis quisquam.",
         "insertDate" : "today 10am"
       },
       {
         "page" : 2,
-        "note" :"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur dicta dolores ipsam iusto nisi nobis pariatur sit sunt veniam! Ad, aliquam error et ipsam nam nobis officia quis quisquam.",
+        "note" :"Page 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur dicta dolores ipsam iusto nisi nobis pariatur sit sunt veniam! Ad, aliquam error et ipsam nam nobis officia quis quisquam.",
         "insertDate" : "today 10am"
       }
     ]

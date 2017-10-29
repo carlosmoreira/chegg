@@ -1,4 +1,4 @@
-var app = angular.module('App', ['pdf', 'ngRoute','ui.bootstrap']);
+var app = angular.module('App', ['pdf', 'ngRoute', 'ui.bootstrap']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
@@ -12,6 +12,12 @@ app.config(function ($routeProvider) {
         .when("/paris", {
             templateUrl: "paris.htm"
         });
+});
+app.run(function ($rootScope, $templateCache) {
+    // $rootScope.$on('$viewContentLoaded', function () {
+    //     $templateCache.removeAll();
+    // });
+    //Listen for route change and clear server Data!
 });
 app.service('Library', function () {
     var documents = [];
@@ -69,26 +75,39 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, $http) {
 
 app.controller('PDFCtrl', function ($scope, $location, Library) {
     //$scope.pdfPassword = 'test';
-    $scope.progressBar = {'currentValue' :0 , 'max' : 0};
+    $scope.progressBar = {'currentValue': 0, 'max': 0};
     $scope.scroll = 0;
     $scope.loading = 'loading';
     $scope.documentLoaded = false;
+    $scope.pageNum = "1";
+
+    $scope.$watch('pageNum', function (newVal) {
+        console.log('currentValue', newVal);
+        //On page update, call ajax request and save to
+    });
 
     /**
-     * That have a PDF Object
-     *
+     @todo:
+     Setup Ajax Service
+     Save Pages on change
+     Setup page notes
+     + Display Notes (Per Page)
+     + Add Notes
+     ++ Modal? Side Drawer?
+     Picture of shelf for library
      */
-    $scope.$watch('pageNum', function (newVal) {
-        console.log('currentValue',newVal);
-    });
 
     $scope.init = function () {
         $scope.documentLoaded = false;
-        if (Library.getSelected() === null)
+        if (Library.getSelected() === null) {
             $location.path('/');
+            return;
+        }
         var selected = Library.getSelected();
         $scope.pdfName = selected.name;
         $scope.pdfUrl = selected.path;
+        $scope.pageNum = selected.pageNum;
+        $scope.selectedBook = selected;
     };
 
     $scope.getNavStyle = function (scroll) {
@@ -98,6 +117,8 @@ app.controller('PDFCtrl', function ($scope, $location, Library) {
 
     $scope.onError = function (error) {
         console.log(error);
+        $scope.error = error;
+        $scope.$apply();
     };
 
     $scope.onLoad = function () {
@@ -107,7 +128,7 @@ app.controller('PDFCtrl', function ($scope, $location, Library) {
 
     //Updates per every progess
     $scope.onProgress = function (progressData) {
-        console.log('ProgressData', progressData);
+        //console.log('ProgressData', progressData);
         $scope.progressBar.currentValue = progressData.loaded;
         $scope.progressBar.max = progressData.total;
     };
@@ -122,8 +143,5 @@ app.controller('PDFCtrl', function ($scope, $location, Library) {
 
     $scope.goToPage = function (pageNum) {
         $scope.pageNum = pageNum;
-    }
-    var isLoaded = function (progressData) {
-        return progressData.loaded = progressData.total;
     };
 });
