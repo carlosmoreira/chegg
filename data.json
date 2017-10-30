@@ -3,7 +3,25 @@
     "name" : "Relativity Document",
     "pageNum" : 10,
     "path" : "pdf/relativity.pdf",
-    "image" : null
+    "image" : null,
+    "bookmarks" : [
+      {
+        "name" : "chapter 1: cool chapter",
+        "page" : 20
+      },
+      {
+        "name" : "chapter 3: cool chapter 3",
+        "page" : 30
+      },
+      {
+        "name" : "chapter 4: cool chapter 4",
+        "page" : 40
+      },
+      {
+        "name" : "chapter 5: cool chapter 5",
+        "page" : 50
+      }
+    ]
   },
   {
     "name" : "Clean Code",

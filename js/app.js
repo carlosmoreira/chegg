@@ -73,7 +73,7 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, $http) {
     }
 });
 
-app.controller('PDFCtrl', function ($scope, $location, Library) {
+app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
     //$scope.pdfPassword = 'test';
     $scope.progressBar = {'currentValue': 0, 'max': 0};
     $scope.scroll = 0;
@@ -88,13 +88,13 @@ app.controller('PDFCtrl', function ($scope, $location, Library) {
 
     /**
      @todo:
-     Setup Ajax Service
+     Setup Api Service
      Save Pages on change
      Setup page notes
-     + Display Notes (Per Page)
      + Add Notes
-     ++ Modal? Side Drawer?
+     ++ Modal
      Picture of shelf for library
+     If no option to display chapters, see if possible to ready whe loading PDF
      */
 
     $scope.init = function () {
@@ -143,5 +143,36 @@ app.controller('PDFCtrl', function ($scope, $location, Library) {
 
     $scope.goToPage = function (pageNum) {
         $scope.pageNum = pageNum;
+    };
+
+    $scope.goToBookmarkPage = function (pageNum) {
+        //console.log('Bookmark page', pageNum);
+        $scope.goToPage(pageNum);
+    };
+
+    $scope.openAddNoteModal = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'myModalContent.html',
+            controller: 'PDFCtrl',
+            controllerAs: '$ctrl',
+            size: size,
+            appendTo: parentElem,
+            resolve: {
+                items: function () {
+                    return [];
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            //$ctrl.selected = selectedItem;
+        }, function () {
+            //$log.info('Modal dismissed at: ' + new Date());
+        });
     };
 });
