@@ -4,12 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
+        <title>CHEGG</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+        <script src="libs/jquery/dist/jquery.min.js"></script>
+        <script src="libs/angular/angular.min.js"></script>
+        <script src="libs/angular-route/angular-route.min.js"></script>
+        <script src="libs/pdfjs-dist/build/pdf.js"></script>
+        <script src="libs/angular-pdf/dist/angular-pdf.min.js"></script>
+        <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <link rel="stylesheet" href="libs/font-awsome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.css">
         <!-- Styles -->
         <style>
             html, body {
