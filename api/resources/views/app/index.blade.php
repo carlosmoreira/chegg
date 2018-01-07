@@ -7,8 +7,10 @@
     <title>CHEGG</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
     <script src="libs/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
     <script src="libs/pdfjs-dist/build/pdf.js"></script>
@@ -59,7 +61,29 @@
                 <li>
                     <a href="#">Notes</a>
                 </li>
-                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if(Auth::check())
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif;
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -68,13 +92,6 @@
 </nav>
 
 <div class="container">
-    <!--<div class="row">-->
-    <!--<div class="col-lg-12">-->
-    <!--<h1 class="page-header">CHEGG-->
-    <!--<small> - Personal Project</small>-->
-    <!--</h1>-->
-    <!--</div>-->
-    <!--</div>-->
     <div ng-view=""></div>
 </div>
 
@@ -83,7 +100,6 @@
     <div class="container">
         <p class="m-0 text-center text-white">Copyright © Your Website 2017</p>
     </div>
-    <!-- /.container -->
 </footer>
 <script src="js/app.js"></script>
 

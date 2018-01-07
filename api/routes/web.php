@@ -20,7 +20,7 @@
  */
 Route::get('/', function () {
     return view('app/index');
-});
+})->middleware('auth');
 
 Auth::routes();
 
@@ -36,4 +36,7 @@ Route::prefix('views')->group(function () {
     });
 });
 
-Route::resource('books', 'BookController');
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('books', 'BookController');
+});
+
