@@ -42,20 +42,16 @@ app.service('Library', function () {
     }
 });
 
-app.controller('LibraryCtrl', function ($scope, $location, Library, $http) {
+app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService) {
     $scope.books = [];
 
     var loadDocuments = function () {
         $scope.loading = true;
-        $http.get('books')
-            .then(function (response) {
+        HttpService.get('books' ,function (response) {
             $scope.loading = false;
             $scope.books = response.data;
             Library.setDocuments(response.data);
-            })
-            .catch(function(error){
-                console.log('catch', error);
-            });
+        });
     };
 
     $scope.init = function () {

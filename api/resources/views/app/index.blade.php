@@ -102,6 +102,6 @@
     </div>
 </footer>
 <script src="js/app.js"></script>
-
+<script src="js/services/HttpService.js"></script>
 </body>
 </html>
