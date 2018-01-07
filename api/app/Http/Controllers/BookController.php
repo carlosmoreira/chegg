@@ -8,14 +8,11 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
      */
     public function index()
     {
-        $books = Book::with('chapters', 'notes')->get();
-        return $books;
+        return  Book::with('chapters', 'notes')->get();
     }
 
     /**

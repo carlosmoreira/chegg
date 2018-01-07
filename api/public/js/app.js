@@ -47,11 +47,15 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, $http) {
 
     var loadDocuments = function () {
         $scope.loading = true;
-        $http.get('fakeData').then(function (response) {
+        $http.get('books')
+            .then(function (response) {
             $scope.loading = false;
             $scope.books = response.data;
             Library.setDocuments(response.data);
-        });
+            })
+            .catch(function(error){
+                console.log('catch', error);
+            });
     };
 
     $scope.init = function () {
