@@ -44,10 +44,12 @@ app.service('Library', function () {
 
 app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService) {
     $scope.books = [];
+    $scope.pageLoaded = false;
 
     var loadDocuments = function () {
         $scope.loading = true;
         HttpService.get('books' ,function (response) {
+            $scope.pageLoaded = true;
             $scope.loading = false;
             $scope.books = response.data;
             Library.setDocuments(response.data);
