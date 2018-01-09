@@ -38,8 +38,8 @@
             </div>
 
         </div>
-        <div class="col-md-2">
-            <h3 align="center" class="" style="margin-top: 0px;">Page: @{{pageNum}}</h3>
+        <div class="col-md-2 text-center">
+            <label align="center" class="" style="margin-top: 0px;">Page: @{{pageNum}}</label>
             <p align="center">
                 <i class="fa fa-2x fa-search-plus cursor-pointer" ng-click="zoomIn()"></i>
                 <i class="fa fa-2x fa-search-minus cursor-pointer" ng-click="zoomOut()"></i>

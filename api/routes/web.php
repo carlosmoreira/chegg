@@ -13,11 +13,20 @@
 /**
  *
  * Todo:
- * Http Service Wrapper
- * Add admin section
+ *
+ * Goal - Finish by end of January
+ * Numbers only on 'go to page'
+ * Book filter
+ * Replace image with self
+ * Error when going back to books... check if var not switched
+ * Have the left menu hide first instead of show
+ * Clever way to hide bottom bar
+ * Add Manage section
  * Upload PDF
  * Save To DB
+ *
  */
+
 Route::get('/', function () {
     return view('app/index');
 })->middleware('auth');
