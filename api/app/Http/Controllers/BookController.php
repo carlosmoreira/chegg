@@ -15,6 +15,10 @@ class BookController extends Controller
         return  Book::with('chapters', 'notes')->get();
     }
 
+    public function manage(){
+        return view('book/manage');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

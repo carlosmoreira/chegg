@@ -37,6 +37,7 @@ Route::prefix('views')->group(function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('books/manage', 'BookController@manage');
     Route::resource('books', 'BookController');
 });
 

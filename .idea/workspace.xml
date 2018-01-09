@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0a3737e-ef8a-472d-871e-a90305f18c8e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/resources/views/book/manage.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/public/js/app.js" afterPath="$PROJECT_DIR$/api/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php" afterPath="$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/resources/views/app/index.blade.php" afterPath="$PROJECT_DIR$/api/resources/views/app/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" afterPath="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" afterPath="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/web.php" afterPath="$PROJECT_DIR$/api/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,18 +17,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="novus.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="novus.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="76" column="22" lean-forward="true" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+            <state relative-caret-position="191">
+              <caret line="88" column="50" lean-forward="false" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
               <folding>
                 <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1515460395751" expanded="false" signature="15627:15637" ph="..." />
-                <marker date="1515460395751" expanded="false" signature="16294:16304" ph="..." />
-                <marker date="1515460395751" expanded="false" signature="16955:16966" ph="..." />
-                <marker date="1515460395751" expanded="false" signature="17621:17632" ph="..." />
+                <marker date="1515462408816" expanded="false" signature="13286:13296" ph="..." />
+                <marker date="1515462408816" expanded="false" signature="13701:13711" ph="..." />
+                <marker date="1515462408816" expanded="false" signature="14110:14121" ph="..." />
+                <marker date="1515462408816" expanded="false" signature="14524:14535" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/BookController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+              <folding>
+                <element signature="e#615#921#2#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/resources/views/book/manage.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -36,50 +69,8 @@
         <entry file="file://$PROJECT_DIR$/api/resources/views/app/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+              <caret line="6" column="11" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="library.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/public/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="51" column="36" lean-forward="false" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/public/css/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/resources/views/auth/login.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-              <folding>
-                <element signature="e#51#3011#0#HTML" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -97,9 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>{{</find>
-      <find>bookmarks</find>
-      <find>fakeData</find>
       <find>css</find>
       <find>/home</find>
       <find>/home'</find>
@@ -127,6 +115,9 @@
       <find>wiko</find>
       <find>book</find>
       <find>&lt;body</find>
+      <find>dashboard</find>
+      <find>app.js</find>
+      <find>mana</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -170,16 +161,17 @@
         <option value="$PROJECT_DIR$/api/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/api/app/Http/Middleware/RedirectIfAuthenticated.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" />
-        <option value="$PROJECT_DIR$/api/routes/web.php" />
         <option value="$PROJECT_DIR$/api/public/js/services/HttpService.js" />
         <option value="$PROJECT_DIR$/adminTheme/index.html" />
         <option value="$PROJECT_DIR$/api/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/api/resources/views/app/index.blade.php" />
         <option value="$PROJECT_DIR$/api/public/css/custom.css" />
         <option value="$PROJECT_DIR$/api/public/js/app.js" />
-        <option value="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" />
         <option value="$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php" />
+        <option value="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" />
+        <option value="$PROJECT_DIR$/api/resources/views/book/manage.blade.php" />
+        <option value="$PROJECT_DIR$/api/routes/web.php" />
+        <option value="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" />
       </list>
     </option>
   </component>
@@ -266,8 +258,7 @@
               <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="angularViews" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="book" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -332,7 +323,7 @@
       <workItem from="1514089720621" duration="3963000" />
       <workItem from="1514145271922" duration="23895000" />
       <workItem from="1515215924656" duration="342000" />
-      <workItem from="1515260628751" duration="18856000" />
+      <workItem from="1515260628751" duration="20176000" />
     </task>
     <task id="LOCAL-00001" summary="Added data being pulled from db">
       <created>1515305011321</created>
@@ -362,11 +353,25 @@
       <option name="project" value="LOCAL" />
       <updated>1515378817472</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Full theme support with a library working">
+      <created>1515461206229</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1515461206229</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add theme css">
+      <created>1515461265352</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1515461265352</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97215000" />
+    <option name="totallyTimeSpent" value="98535000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,14 +434,15 @@
     <MESSAGE value="Added data being pulled from db" />
     <MESSAGE value="Added Auth Middlware to routes" />
     <MESSAGE value="adding theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding theme" />
+    <MESSAGE value="Full theme support with a library working" />
+    <MESSAGE value="add theme css" />
+    <option name="LAST_COMMIT_MESSAGE" value="add theme css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libs/angular-ui-bootstrap/misc/demo/assets/app.js" />
     <entry file="file://$PROJECT_DIR$/libs/angular-ui-bootstrap/misc/demo/index.html" />
     <entry file="file://$PROJECT_DIR$/libs/angular-bootstrap/.bower.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -677,14 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/BookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/public/libs/bootstrap/dist/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -708,16 +706,6 @@
         <state relative-caret-position="-1393">
           <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#615#921#2#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,14 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/public/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -783,33 +763,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/public/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/BookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/resources/views/app/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <caret line="6" column="11" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+          <folding>
+            <element signature="e#615#921#2#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/resources/views/book/manage.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="76" column="22" lean-forward="true" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+        <state relative-caret-position="191">
+          <caret line="88" column="50" lean-forward="false" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
           <folding>
             <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1515460395751" expanded="false" signature="15627:15637" ph="..." />
-            <marker date="1515460395751" expanded="false" signature="16294:16304" ph="..." />
-            <marker date="1515460395751" expanded="false" signature="16955:16966" ph="..." />
-            <marker date="1515460395751" expanded="false" signature="17621:17632" ph="..." />
+            <marker date="1515462408816" expanded="false" signature="13286:13296" ph="..." />
+            <marker date="1515462408816" expanded="false" signature="13701:13711" ph="..." />
+            <marker date="1515462408816" expanded="false" signature="14110:14121" ph="..." />
+            <marker date="1515462408816" expanded="false" signature="14524:14535" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
