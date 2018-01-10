@@ -59,8 +59,11 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService)
     $scope.init = function () {
         if (Library.getDocuments().length === 0)
             loadDocuments();
-        else
+        else{
             $scope.books = Library.getDocuments();
+            $scope.pageLoaded = true;
+        }
+
     };
 
     $scope.selectBook = function (book) {
@@ -84,7 +87,7 @@ app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
     $scope.pageNum = "1";
 
     $scope.$watch('pageNum', function (newVal) {
-        console.log('currentValue', newVal);
+        //console.log('currentValue', newVal);
         //On page update, call ajax request and save to
     });
 

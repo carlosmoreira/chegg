@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0a3737e-ef8a-472d-871e-a90305f18c8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/resources/views/book/manage.blade.php" />
+    <list default="true" id="c0a3737e-ef8a-472d-871e-a90305f18c8e" name="Default" comment="updated book viewer colors">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" afterPath="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/public/js/app.js" afterPath="$PROJECT_DIR$/api/public/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" afterPath="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/web.php" afterPath="$PROJECT_DIR$/api/routes/web.php" />
     </list>
@@ -17,17 +16,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="novus.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="novus.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="88" column="50" lean-forward="false" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
+            <state relative-caret-position="212">
+              <caret line="57" column="67" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="67" />
               <folding>
                 <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1515462408816" expanded="false" signature="13286:13296" ph="..." />
-                <marker date="1515462408816" expanded="false" signature="13701:13711" ph="..." />
-                <marker date="1515462408816" expanded="false" signature="14110:14121" ph="..." />
-                <marker date="1515462408816" expanded="false" signature="14524:14535" ph="..." />
+                <marker date="1515544441277" expanded="false" signature="13294:13304" ph="..." />
+                <marker date="1515544441277" expanded="false" signature="13709:13719" ph="..." />
+                <marker date="1515544441277" expanded="false" signature="14118:14129" ph="..." />
+                <marker date="1515544441277" expanded="false" signature="14532:14543" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/public/css/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewer.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/viewer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,11 +67,21 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+            <state relative-caret-position="117">
+              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding>
-                <element signature="e#615#921#2#PHP" expanded="false" />
+                <element signature="e#792#1098#2#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/public/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="89" column="10" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,6 +106,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -88,10 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>css</find>
-      <find>/home</find>
-      <find>/home'</find>
-      <find>Notes</find>
       <find>CHEGG</find>
       <find>bootstra</find>
       <find>view</find>
@@ -118,6 +155,10 @@
       <find>dashboard</find>
       <find>app.js</find>
       <find>mana</find>
+      <find>Page</find>
+      <find>currentV</find>
+      <find>console</find>
+      <find>clndr.js</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -142,9 +183,7 @@
         <option value="$PROJECT_DIR$/api/app/Http/Controllers/AppController.php" />
         <option value="$PROJECT_DIR$/api/resources/views/app/index.php" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/api/public/css/app.css" />
         <option value="$PROJECT_DIR$/api/resources/views/app/angularViews/pdfViewer.blade.php" />
-        <option value="$PROJECT_DIR$/api/resources/views/app/angularViews/viewer.blade.php" />
         <option value="$PROJECT_DIR$/api/.env" />
         <option value="$PROJECT_DIR$/api/database/migrations/2017_12_25_051102_create_chapters_table.php" />
         <option value="$PROJECT_DIR$/api/database/migrations/2017_12_25_053324_create_notes_table.php" />
@@ -166,12 +205,14 @@
         <option value="$PROJECT_DIR$/api/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/api/resources/views/app/index.blade.php" />
         <option value="$PROJECT_DIR$/api/public/css/custom.css" />
-        <option value="$PROJECT_DIR$/api/public/js/app.js" />
         <option value="$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php" />
         <option value="$PROJECT_DIR$/api/app/Http/Controllers/BookController.php" />
         <option value="$PROJECT_DIR$/api/resources/views/book/manage.blade.php" />
-        <option value="$PROJECT_DIR$/api/routes/web.php" />
+        <option value="$PROJECT_DIR$/api/public/css/app.css" />
+        <option value="$PROJECT_DIR$/api/resources/views/app/angularViews/viewer.blade.php" />
+        <option value="$PROJECT_DIR$/api/public/js/app.js" />
         <option value="$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php" />
+        <option value="$PROJECT_DIR$/api/routes/web.php" />
       </list>
     </option>
   </component>
@@ -258,6 +299,15 @@
               <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="angularViews" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="chegg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chegg" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="book" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -323,7 +373,7 @@
       <workItem from="1514089720621" duration="3963000" />
       <workItem from="1514145271922" duration="23895000" />
       <workItem from="1515215924656" duration="342000" />
-      <workItem from="1515260628751" duration="20176000" />
+      <workItem from="1515260628751" duration="22536000" />
     </task>
     <task id="LOCAL-00001" summary="Added data being pulled from db">
       <created>1515305011321</created>
@@ -367,11 +417,25 @@
       <option name="project" value="LOCAL" />
       <updated>1515461265352</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add theme css">
+      <created>1515462507993</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1515462507993</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updated book viewer colors">
+      <created>1515466029036</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1515466029036</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98535000" />
+    <option name="totallyTimeSpent" value="100895000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -436,7 +500,8 @@
     <MESSAGE value="adding theme" />
     <MESSAGE value="Full theme support with a library working" />
     <MESSAGE value="add theme css" />
-    <option name="LAST_COMMIT_MESSAGE" value="add theme css" />
+    <MESSAGE value="updated book viewer colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated book viewer colors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -522,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/viewer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -582,13 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/public/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -647,14 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -755,14 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="51" column="36" lean-forward="false" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/library.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -795,16 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
-          <folding>
-            <element signature="e#615#921#2#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/resources/views/book/manage.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -813,17 +838,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php">
+    <entry file="file://$PROJECT_DIR$/api/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/resources/views/app/angularViews/viewer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
-          <caret line="88" column="50" lean-forward="false" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
+          <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="89" column="10" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/resources/views/layouts/novus.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="57" column="67" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="67" />
           <folding>
             <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1515462408816" expanded="false" signature="13286:13296" ph="..." />
-            <marker date="1515462408816" expanded="false" signature="13701:13711" ph="..." />
-            <marker date="1515462408816" expanded="false" signature="14110:14121" ph="..." />
-            <marker date="1515462408816" expanded="false" signature="14524:14535" ph="..." />
+            <marker date="1515544441277" expanded="false" signature="13294:13304" ph="..." />
+            <marker date="1515544441277" expanded="false" signature="13709:13719" ph="..." />
+            <marker date="1515544441277" expanded="false" signature="14118:14129" ph="..." />
+            <marker date="1515544441277" expanded="false" signature="14532:14543" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="e#792#1098#2#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
