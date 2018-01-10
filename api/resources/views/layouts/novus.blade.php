@@ -83,11 +83,8 @@
     </div>
     <!--//footer-->
 </div>
-
 <script src="/js/app.js"></script>
 <script src="/js/services/HttpService.js"></script>
-
-{{--New--}}
 <!-- Classie -->
 <script src="/js/classie.js"></script>
 <script>
@@ -116,6 +113,5 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.js"></script>
 {{--End--}}
-
 </body>
 </html>
