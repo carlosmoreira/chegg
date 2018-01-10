@@ -16,7 +16,7 @@ class BookController extends Controller
     }
 
     public function manage(){
-        return view('book/manage');
+        return view('book/manage', ['books' => Book::all()]);
     }
 
     /**
@@ -26,7 +26,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('book/add', ['book' => new Book()]);
     }
 
     /**

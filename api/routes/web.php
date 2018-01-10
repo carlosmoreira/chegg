@@ -18,11 +18,11 @@
  * Numbers only on 'go to page'
  * Book filter
  * Replace image with self
- * ++Have the left menu hide first instead of show
+ *  - Idea, hang it from the top, with a button on the top menu to hide/close the nav
  * Clever way to hide bottom bar
- * Add Manage section
- * Upload PDF
- * Save To DB
+ * ++ Add Manage section
+ * ++ Upload PDF
+ * ++ Save To DB
  *
  */
 

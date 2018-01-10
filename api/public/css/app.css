@@ -96,3 +96,8 @@ ul.notes li div {
     -o-transition: -o-transform 0.15s linear;
     -webkit-transition: -webkit-transform 0.15s linear;
 }
+
+.customPanel{
+    background-color: rgb(79, 82, 186) !important;
+    border-color: rgb(79, 82, 186) !important;
+}
