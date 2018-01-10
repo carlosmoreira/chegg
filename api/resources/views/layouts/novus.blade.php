@@ -55,9 +55,9 @@
     <link rel="stylesheet" href="/css/clndr.css" type="text/css"/>
     <script src="/js/underscore-min.js" type="text/javascript"></script>
     <script src="/js/moment-2.2.1.js" type="text/javascript"></script>
-    {{--<script src="/js/clndr.js" type="text/javascript"></script>--}}
-    <script src="/js/site.js" type="text/javascript"></script>
-    <!--End Calender-->
+    <script src="/js/clndr.js" type="text/javascript"></script>
+    {{--<script src="/js/site.js" type="text/javascript"></script>--}}
+<!--End Calender-->
     <!-- Metis Menu -->
     <script src="/js/metisMenu.min.js"></script>
     <script src="/js/custom.js"></script>
@@ -67,18 +67,13 @@
     {{--End--}}
 
 </head>
-<body ng-app="App" class="cbp-spmenu-push
-    @if(!Auth::check())
-        cbp-spmenu-push-toright
-    @endif
-        ">
-
+<body ng-app="App" class="cbp-spmenu-push cbp-spmenu-push-toright">
 <div class="main-content">
 @if(Auth::check())
     <!--left-fixed -navigation-->
         <div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
-                <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+                <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left cbp-spmenu-open" id="cbp-spmenu-s1">
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="/" class="active">
