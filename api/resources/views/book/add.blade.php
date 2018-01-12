@@ -12,17 +12,21 @@
                 <h2 class="panel-title">Add Book</h2>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal">
+                @if(Session::has('error'))
+                    {{var_dump(Session::get('error'))}}
+                @endif
+                <form class="form-horizontal" action="/books/" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Book Name</label>
+                        <label for="bookName" class="col-sm-2 control-label">Book Name</label>
                         <div class="col-sm-8">
-                            <input class="form-control1" id="focusedinput" placeholder="Default Input" type="text">
+                            <input name="bookName" class="form-control1" id="focusedinput" placeholder="Book Name" type="text">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Book File</label>
                         <div class="col-sm-8">
-                            <input type="file">
+                            <input type="file" name="bookPdfFile">
                         </div>
                     </div>
                     <div class="form-group">

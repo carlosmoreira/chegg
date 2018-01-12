@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Mockery\Exception;
 
 class BookController extends Controller
 {
@@ -37,7 +40,33 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            //ini_set('max_execution_time', '300')
+            $book = new Book();
+            $book->name = $request->get('bookName');
+            if($request->hasFile('bookPdfFile'))
+                $file = $request->file('bookPdfFile');
+            else
+                throw new Exception('some of my error');
+
+
+            $fileName = str_random();
+            $book->url = $fileName;
+
+            /**
+             * @var UploadedFile $file
+             */
+            if($file)
+                $file->move(public_path() . '/pdf/' ,$fileName . 'pdf');
+            else
+                throw new Exception('Error uploading file');
+
+            $book->save();
+
+            return redirect('books/manage')->with('success',"Book saved successfully");
+        }catch (Exception $exception){
+            return back()->with(['error' => $exception->getMessage()]);
+        }
     }
 
     /**

@@ -2,6 +2,15 @@
 
 @section('content')
     <h2>Manage Library</h2>
+    @if(Session::has('success'))
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <p class="alert alert-success">
+                    <i class="fa fa-exclamation-circle"></i>  {{Session::get('success')}}
+                </p>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-2">
             @include('book.partials.menu')

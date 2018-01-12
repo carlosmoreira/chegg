@@ -32,7 +32,7 @@ class BooksTableSeeder extends Seeder
         $book2 = new \App\Book();
         $book2->name = "Relativity Document";
         $book2->pageNum = 10;
-        $book2->path = "pdf/relativity.pdf";
+        $book2->path = "relativity.pdf";
         $book2->image = null;
 
         $note = new \App\Note();
