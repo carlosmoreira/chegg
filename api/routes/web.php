@@ -20,15 +20,17 @@
  * Replace image with self
  *  - Idea, hang it from the top, with a button on the top menu to hide/close the nav
  * Clever way to hide bottom bar
- * ++ Add Manage section
- * ++ Upload PDF
- * ++ Save To DB
+ *
+ * Save on next page or page change
+ *  Client and Server
  *
  */
 
 Route::get('/', function () {
     return view('app/index');
 })->middleware('auth');
+
+Route::get('/file/{type}/{file}', 'StaticFileController@getFile');
 
 Auth::routes();
 
@@ -48,4 +50,3 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('books/manage', 'BookController@manage');
     Route::resource('books', 'BookController');
 });
-

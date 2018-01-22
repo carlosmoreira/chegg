@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Book;
+use App\Chegg\ImagickHelper;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -41,30 +43,41 @@ class BookController extends Controller
     public function store(Request $request)
     {
         try{
+
             //ini_set('max_execution_time', '300')
             $book = new Book();
             $book->name = $request->get('bookName');
             if($request->hasFile('bookPdfFile'))
                 $file = $request->file('bookPdfFile');
             else
-                throw new Exception('some of my error');
-
+                throw new Exception('File is required');
 
             $fileName = str_random();
-            $book->url = $fileName;
-
+            $book->file = $fileName;
+            $pdfsStorage = storage_path() . '/pdfs/';
+            $savePdfAs = $fileName . '.pdf';
             /**
              * @var UploadedFile $file
              */
             if($file)
-                $file->move(public_path() . '/pdf/' ,$fileName . 'pdf');
+                $file->move( $pdfsStorage , $savePdfAs );
             else
                 throw new Exception('Error uploading file');
 
-            $book->save();
+            //After the file is moved over into the storage/pdfs directory,
+            //retrieve it with imagick and save the first page of the pdf as an image.
 
-            return redirect('books/manage')->with('success',"Book saved successfully");
+            $imageSaved = ImagickHelper::ConvertNSave($pdfsStorage,$savePdfAs,$fileName);
+
+            if($imageSaved)
+                $book->image = $imageSaved;
+
+            if($book->save()    )
+                return redirect('books/manage')->with('success',"Book saved successfully");
+            else
+                throw new Exception('unable to save book');
         }catch (Exception $exception){
+            //variant_and($exception->getMessage());die();
             return back()->with(['error' => $exception->getMessage()]);
         }
     }

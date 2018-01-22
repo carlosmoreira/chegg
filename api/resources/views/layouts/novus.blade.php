@@ -112,6 +112,7 @@
 <!--//scrolling js-->
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.js"></script>
+@yield('footerScripts')
 {{--End--}}
 </body>
 </html>

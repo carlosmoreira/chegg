@@ -13,7 +13,9 @@
             </div>
             <div class="panel-body">
                 @if(Session::has('error'))
-                    {{var_dump(Session::get('error'))}}
+                    <p class="alert alert-danger">
+                        <i class="fa fa-exclamation-circle"></i> {{Session::get('error')}}
+                    </p>
                 @endif
                 <form class="form-horizontal" action="/books/" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -26,7 +28,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Book File</label>
                         <div class="col-sm-8">
-                            <input type="file" name="bookPdfFile">
+                            <input class="btn btn-primary" type="file" name="bookPdfFile">
                         </div>
                     </div>
                     <div class="form-group">
@@ -39,4 +41,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footerScripts')
+
 @endsection

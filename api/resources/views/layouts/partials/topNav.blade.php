@@ -8,8 +8,8 @@
     @endif
     <!--logo -->
         <div class="logo">
-            <a href="index.html">
-                <h1>Personal CHEGG</h1>
+            <a href="/">
+                <h1>Personal</h1>
                 <span>Library</span>
             </a>
         </div>

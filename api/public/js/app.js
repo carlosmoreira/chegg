@@ -74,7 +74,7 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService)
     $scope.getImage = function (document) {
         if (!document.image || document.image === null)
             return "https://fakeimg.pl/150x200/";
-        return document.image;
+        return "/images/pdf/" + document.image;
     }
 });
 
@@ -110,7 +110,7 @@ app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
         }
         var selected = Library.getSelected();
         $scope.pdfName = selected.name;
-        $scope.pdfUrl = selected.path;
+        $scope.pdfUrl =  "/file/pdf/" + selected.file;
         $scope.pageNum = selected.pageNum;
         $scope.selectedBook = selected;
     };
