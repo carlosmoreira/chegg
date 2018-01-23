@@ -31,7 +31,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book/add', ['book' => new Book()]);
+        return view('book/addEdit', ['book' => new Book()]);
     }
 
     /**
@@ -101,19 +101,33 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        try{
+            return view('book/addEdit', ['book' => Book::findOrFail($id)]);
+        }catch (\Exception $exception){
+            return redirect('book/manage')->with('error','Unable to find specified book');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|\Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $book = Book::findOrFail($id);
+            //Stopped here.... finish update on server side post, then check through ajax
+            if($request->ajax())
+                return $book;
+            else
+                return redirect('/books/edit/' . $id)->with('success','Book updated successfully');
+        }catch (\Exception $exception){
+            return redirect('/books/edit/' . $id)->with('error', $exception->getMessage());
+        }
+
     }
 
     /**

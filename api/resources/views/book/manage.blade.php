@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{$book->name}}</td>
                                 <td>
-                                    <a href="/books/edit/{{$book->id}}">
+                                    <a href="/books/{{$book->id}}/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>

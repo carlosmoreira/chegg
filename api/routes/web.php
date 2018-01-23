@@ -23,7 +23,10 @@
  *
  * Save on next page or page change
  *  Client and Server
+ * instead of updating on every page change, update on a check
+ * to see if current page is greater than the maxPageRead
  *
+ * New button to set max page read
  */
 
 Route::get('/', function () {
