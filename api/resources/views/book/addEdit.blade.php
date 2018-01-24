@@ -41,15 +41,29 @@
                     @if($book->id)
                         {{ method_field('PUT') }}
                     @endif
+                    <div>
+                        old: {{old('name')}}
+                    </div>
                     <div class="form-group">
                         <label for="bookName" class="col-sm-2 control-label">Book Name</label>
-                        <div class="col-sm-8">
-                            <input name="bookName"
+                        <div class="col-sm-5">
+                            <input name="name"
                                    class="form-control1"
                                    id="bookName" placeholder="Book Name" type="text"
-                                   value="{{$book->name}}">
+                                   value="{{ ($book->name) ? $book->name : old('name')}}">
                         </div>
                     </div>
+                    @if($book->id)
+                        <div class="form-group">
+                            <label for="pageNum" class="col-sm-2 control-label">Max page Read</label>
+                            <div class="col-sm-2">
+                                <input name="pageNum"
+                                       class="form-control1"
+                                       id="pageNum" placeholder="Page Num" type="number"
+                                       value="{{$book->pageNum}}">
+                            </div>
+                        </div>
+                    @endif
                     @if(!$book->id)
                         <div class="form-group">
                             <label for="focusedinput" class="col-sm-2 control-label">Book File</label>

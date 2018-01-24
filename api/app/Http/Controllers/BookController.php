@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Chegg\ImagickHelper;
 use Faker\Provider\File;
+use Illuminate\Database\Eloquent\MassAssignmentException;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Mockery\Exception;
@@ -46,7 +48,7 @@ class BookController extends Controller
 
             //ini_set('max_execution_time', '300')
             $book = new Book();
-            $book->name = $request->get('bookName');
+            $book->name = $request->get('name');
             if($request->hasFile('bookPdfFile'))
                 $file = $request->file('bookPdfFile');
             else
@@ -76,9 +78,12 @@ class BookController extends Controller
                 return redirect('books/manage')->with('success',"Book saved successfully");
             else
                 throw new Exception('unable to save book');
+        }catch (QueryException $exception){
+            //return view('ook/addEdit', ['book' => new Book()]);
+            return back()->with(['error' => $exception->getMessage()])->withInput();
         }catch (Exception $exception){
             //variant_and($exception->getMessage());die();
-            return back()->with(['error' => $exception->getMessage()]);
+            return back()->with(['error' => $exception->getMessage()])->withInput();
         }
     }
 
@@ -118,14 +123,20 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         try{
+            //var_dump($request->all());die();
             $book = Book::findOrFail($id);
+            $book->fill($request->all());
+            $book->save();
             //Stopped here.... finish update on server side post, then check through ajax
             if($request->ajax())
                 return $book;
             else
-                return redirect('/books/edit/' . $id)->with('success','Book updated successfully');
+                return redirect("/books/$id/edit")->with('success','Book updated successfully');
+        }catch (MassAssignmentException $exception){
+            return redirect("/books/$id/edit")->with('error', "Mass Assignment Error: " . $exception->getMessage());
         }catch (\Exception $exception){
-            return redirect('/books/edit/' . $id)->with('error', $exception->getMessage());
+            //var_dump($exception->getMessage());die();
+            return redirect("/books/$id/edit")->with('error', $exception->getMessage());
         }
 
     }
