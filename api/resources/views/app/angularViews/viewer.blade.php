@@ -18,8 +18,16 @@
 @{{loading}}
 
 <div id="pdfNav" class="navbar-fixed-bottom">
-    <i id="pagePrev" class="fa fa-arrow-circle-left fa-3x" ng-click="goPrevious()" style="cursor: pointer"></i>
-    <i id="pageNext" class="fa fa-arrow-circle-right fa-3x" ng-click="goNext()" style="cursor: pointer"></i>
+    <span id="pagePrev"
+       class="changePage"
+       ng-click="goPrevious()">
+        <i class="fa fa-arrow-circle-left fa-3x"></i>
+    </span>
+    <span id="pageNext"
+       class="changePage"
+       >
+        <i ng-click="goNext()" class="fa fa-arrow-circle-right fa-3x"></i>
+    </span>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-3">
@@ -56,6 +64,11 @@
             </div><!-- /input-group -->
         </div>
         <!--<div class="col-md-3"></div>-->
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <label for="" style="color:rgb(79, 82, 186)">.</label>
+            <div class="input-group text-center">
+                <button class="btn btn-primary whiteBtn" ng-click="setMaxPage()">Set Max Page</button>
+            </div>
+        </div>
     </div>
 </div>

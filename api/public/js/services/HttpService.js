@@ -7,7 +7,16 @@ app.service('HttpService', function ($http) {
             });
     };
 
+    var post = function (url, data, success, error) {
+        $http.post(url,data)
+            .then(success, error)
+            .catch(function (error) {
+                console.log('catch', error);
+            });
+    };
+
     return {
-        get: get
+        get: get,
+        post : post
     }
 });

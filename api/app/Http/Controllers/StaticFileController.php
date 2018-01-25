@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Mockery\Exception;
@@ -21,10 +23,16 @@ class StaticFileController extends Controller
 
             $headers = array(
                 'Content-Type' => $mimeType,
-                'Content-Disposition' => 'inline; filename="'.$fileName.'"'
+                'Content-Disposition' => 'filename="'.$fileName.'"',
+                'Content-Length' => \File::size($storagePath)
             );
 
-            return \response(file_get_contents($storagePath), 200, $headers);
+            $fileContent = file_get_contents($storagePath);
+
+            return \Response::stream(function() use($fileContent) {
+                echo $fileContent;
+            }, 200, $headers);
+
         }catch (\Exception $exception){
             abort(403, 'Unauthorized action.');
         }

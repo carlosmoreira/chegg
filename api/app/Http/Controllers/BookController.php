@@ -129,7 +129,7 @@ class BookController extends Controller
             $book->save();
             //Stopped here.... finish update on server side post, then check through ajax
             if($request->ajax())
-                return $book;
+                return ['Success' => 'ok', 'book' => $book];
             else
                 return redirect("/books/$id/edit")->with('success','Book updated successfully');
         }catch (MassAssignmentException $exception){

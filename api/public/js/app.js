@@ -1,5 +1,6 @@
 var app = angular.module('App', ['pdf', 'ngRoute', 'ui.bootstrap']);
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider,$httpProvider) {
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     $routeProvider
         .when("/", {
             templateUrl: "views/library",
@@ -41,7 +42,6 @@ app.service('Library', function () {
         setSelected: setSelected
     }
 });
-
 app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService) {
     $scope.books = [];
     $scope.pageLoaded = false;
@@ -77,8 +77,13 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService)
         return "/images/pdf/" + document.image;
     }
 });
+app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Library, BookHttpService) {
 
-app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
+    var maxPageRead = null;
+    var pageCheckIntervalSeconds = 5;
+    var pageCheckInterval = null;
+    var selected = null;
+
     //$scope.pdfPassword = 'test';
     $scope.progressBar = {'currentValue': 0, 'max': 0};
     $scope.scroll = 0;
@@ -86,33 +91,41 @@ app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
     $scope.documentLoaded = false;
     $scope.pageNum = "1";
 
-    $scope.$watch('pageNum', function (newVal) {
+    //$scope.$watch('pageNum', function (newVal) {
         //console.log('currentValue', newVal);
         //On page update, call ajax request and save to
-    });
-
-    /**
-     @todo:
-     Setup Api Service
-     Save Pages on change
-     Setup page notes
-     + Add Notes
-     ++ Modal
-     Picture of shelf for library
-     If no option to display chapters, see if possible to ready whe loading PDF
-     */
+    //});
 
     $scope.init = function () {
+        if(pageCheckInterval)
+            $interval.cancel(pageCheckInterval);
         $scope.documentLoaded = false;
         if (Library.getSelected() === null) {
             $location.path('/');
             return;
         }
-        var selected = Library.getSelected();
+        selected = Library.getSelected();
         $scope.pdfName = selected.name;
-        $scope.pdfUrl =  "/file/pdf/" + selected.file;
+        $scope.pdfUrl =  "/file/pdf/" + selected.file;//"/pdf/cleancode.pdf";//
         $scope.pageNum = selected.pageNum;
         $scope.selectedBook = selected;
+        maxPageRead = selected.pageNum;
+    };
+
+    $scope.setMaxPage = function () {
+        BookHttpService
+            .updateBook(
+                selected.id,
+                {'_method' : 'PUT','pageNum' : $scope.pageNum},
+                function (response) {
+                    console.log('updateBook',response.data);
+                    if(response.data.Success){
+                        alert('Max Page Updated');
+                    }
+                },
+                function (error) {
+                    console.log('updateBook',error);
+                });
     };
 
     $scope.getNavStyle = function (scroll) {
@@ -126,16 +139,40 @@ app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
         $scope.$apply();
     };
 
+    var maxPageCheck = function(){
+        pageCheckInterval = $interval(function () {
+            var currentPageNumber = $scope.pageNum;
+            //console.log('current page is ' , currentPageNumber);
+            //console.log('Our max page is', maxPageRead);
+            if(currentPageNumber > maxPageRead){
+                maxPageRead = currentPageNumber;
+                BookHttpService
+                    .updateBook(
+                        selected.id,
+                        {'_method' : 'PUT','pageNum' : currentPageNumber},
+                        function (response) {
+                            console.log('updateBook',response.data);
+                        },
+                        function (error) {
+                            console.log('updateBook',error);
+                        });
+            }
+
+            //Call HttpService and update the server with the page
+        },pageCheckIntervalSeconds);
+    };
+
     $scope.onLoad = function () {
         $scope.loading = '';
         $scope.documentLoaded = true;
+        maxPageCheck();
     };
 
-    //Updates per every progess
-    $scope.onProgress = function (progressData) {
-        //console.log('ProgressData', progressData);
-        $scope.progressBar.currentValue = progressData.loaded;
-        $scope.progressBar.max = progressData.total;
+    //Updates per every progress
+    $scope.onProgress = function (progress) {
+        console.log('ProgressData', progress);
+        // $scope.progressBar.currentValue = progressData.loaded;
+        // $scope.progressBar.max = progressData.total;
     };
 
     $scope.onPassword = function (updatePasswordFn, passwordResponse) {
@@ -180,4 +217,14 @@ app.controller('PDFCtrl', function ($scope, $location, $uibModal, Library) {
             //$log.info('Modal dismissed at: ' + new Date());
         });
     };
+});
+
+app.service('BookHttpService', function (HttpService) {
+    var updateBook = function (id, data, success, fail) {
+        console.log('calling', '/books/' + id);
+        return HttpService.post('/books/' + id , data, success, fail);
+    };
+    return {
+        updateBook : updateBook
+    }
 });

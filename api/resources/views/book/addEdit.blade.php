@@ -41,9 +41,6 @@
                     @if($book->id)
                         {{ method_field('PUT') }}
                     @endif
-                    <div>
-                        old: {{old('name')}}
-                    </div>
                     <div class="form-group">
                         <label for="bookName" class="col-sm-2 control-label">Book Name</label>
                         <div class="col-sm-5">
