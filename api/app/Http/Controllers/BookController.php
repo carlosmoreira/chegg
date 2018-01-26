@@ -46,7 +46,7 @@ class BookController extends Controller
     {
         try{
 
-            //ini_set('max_execution_time', '300')
+            ini_set('max_execution_time', '3000');
             $book = new Book();
             $book->name = $request->get('name');
             if($request->hasFile('bookPdfFile'))
