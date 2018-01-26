@@ -34,7 +34,7 @@
                             @if($book->id)
                               /books/{{$book->id}}
                             @else
-                              /books/
+                              /books
                             @endif
                         " method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
