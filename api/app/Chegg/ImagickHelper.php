@@ -24,7 +24,7 @@ class ImagickHelper
             $im->writeImage(public_path().'/images/pdf/'. $fileName . '.jpg');
             return $fileName . '.jpg';
         }catch (\Exception $exception){
-
+            @mail('moreira.carlos09@gmail.com', 'Error with imagic', $exception->getMessage());
             return false;
         }
     }
