@@ -28,11 +28,22 @@
                         </tr>
                         @foreach($books as $book)
                             <tr>
-                                <td>{{$book->name}}</td>
+                                <td>{{$book->name}} - {{$book->image}} - {{ $book->file }}</td>
                                 <td>
-                                    <a href="/books/{{$book->id}}/edit">
+                                    <a class="btn btn-sm btn-primary" href="/books/{{$book->id}}/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                    <button type="button" class="btn btn-sm btn-danger"
+                                            onclick="document.getElementById('deleteBook{{$book->id}}').submit();">
+                                        <i class="fa fa-bug">
+                                        </i>
+                                    </button>
+                                    <form action="/books/{{$book->id}}" method="POST" id="deleteBook{{$book->id}}">
+                                        {{ csrf_field() }}
+                                        @if($book->id)
+                                            {{ method_field('DELETE') }}
+                                        @endif
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

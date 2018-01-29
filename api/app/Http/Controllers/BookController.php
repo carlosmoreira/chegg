@@ -149,6 +149,24 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+
+            $book = Book::findOrFail($id);
+            $book->delete();
+
+            //Delete Book image and book PDF
+            $bookImage = public_path() .'/images/pdf/' . $book->image;
+            if(\File::exists($bookImage))
+                \File::delete($bookImage);
+
+            $pdfFile = storage_path() . '/pdfs/' . $book->file .'.pdf' ;
+            if(\File::exists($pdfFile))
+                \File::delete($pdfFile);
+
+            return redirect('books/manage')->with('success',"Book Successfully Deleted");
+
+        }catch (Exception $e){
+            return redirect('books/manage')->with('error',$e->getMessage());
+        }
     }
 }
