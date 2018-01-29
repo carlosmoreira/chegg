@@ -10,21 +10,25 @@ namespace App\Chegg;
 
 class ImagickHelper
 {
+    const SAVE_IMG_TYPE = 'jpeg';
+
     /**
      * @param $pdfsStorage
      * @param $savePdfAs
      * @param $fileName
      * @return bool
      */
-    public static function ConvertNSave($pdfsStorage, $savePdfAs, $fileName){
-        try{
+    public static function ConvertNSave($pdfsStorage, $savePdfAs, $fileName)
+    {
+        try {
             $im = new \imagick($pdfsStorage . $savePdfAs . '[0]');
-            $im->setImageFormat('jpg');
-            $im->resizeImage('150', '200',\Imagick::FILTER_LANCZOS, 1);
-            $im->writeImage(public_path().'/images/pdf/'. $fileName . '.jpg');
-            return $fileName . '.jpg';
-        }catch (\Exception $exception){
-            @mail('moreira.carlos09@gmail.com', 'Error with imagic', $exception->getMessage());
+            $im->setImageFormat(self::SAVE_IMG_TYPE);
+            $im->trimImage(20000);
+            //$im->resizeImage('350', '500',\Imagick::FILTER_LANCZOS, 1, true);
+            $im->writeImage(public_path() . '/images/pdf/' . $fileName . self::SAVE_IMG_TYPE);
+            return $fileName . self::SAVE_IMG_TYPE;
+        } catch (\Exception $exception) {
+            @mail('moreira.carlos09@gmail.com', 'Error with imagick', $exception->getMessage());
             return false;
         }
     }

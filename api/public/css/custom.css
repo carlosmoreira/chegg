@@ -1,3 +1,9 @@
+#books .book .thumbnail{
+    max-width: 165px;
+}
+#books .book .thumbnail img{
+    max-width: 150px;
+}
 .changePage{
     border:1px solid red;
     cursor: pointer;

@@ -7,8 +7,8 @@
             <div ng-show="!pageLoaded">
                 Loading...
             </div>
-            <div ng-show="pageLoaded" class="row" ng-show="pageLoaded">
-                <div ng-repeat="book in books" class="col-md-3 col-xs-6 bookBlock">
+            <div ng-show="pageLoaded" id="books" class="row" ng-show="pageLoaded">
+                <div ng-repeat="book in books" class="col-md-3 col-xs-6 bookBlock book">
                     <a class="thumbnail" ng-click="selectBook(book)">
                         <img ng-src="@{{getImage(book)}}" alt="">
                     </a>
