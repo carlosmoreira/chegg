@@ -1,5 +1,6 @@
 #books .book .thumbnail{
     max-width: 165px;
+    min-height: 225px;
 }
 #books .book .thumbnail img{
     max-width: 150px;

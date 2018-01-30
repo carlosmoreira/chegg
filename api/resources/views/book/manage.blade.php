@@ -28,7 +28,7 @@
                         </tr>
                         @foreach($books as $book)
                             <tr>
-                                <td>{{$book->name}} - {{$book->image}} - {{ $book->file }}</td>
+                                <td>{{$book->name}}</td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" href="/books/{{$book->id}}/edit">
                                         <i class="fa fa-edit"></i>

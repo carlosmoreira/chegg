@@ -121,6 +121,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
                     console.log('updateBook',response.data);
                     if(response.data.Success){
                         alert('Max Page Updated');
+                        selected.pageNum = $scope.pageNum;
                     }
                 },
                 function (error) {
