@@ -91,10 +91,11 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     $scope.documentLoaded = false;
     $scope.pageNum = "1";
 
-    //$scope.$watch('pageNum', function (newVal) {
+    $scope.$watch('pageNum', function (newVal) {
         //console.log('currentValue', newVal);
         //On page update, call ajax request and save to
-    //});
+        window.scroll(0, 0);
+    });
 
     $scope.init = function () {
         if(pageCheckInterval)
