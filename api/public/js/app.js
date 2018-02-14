@@ -183,8 +183,9 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     //Updates per every progress
     $scope.onProgress = function (progress) {
         console.log('ProgressData', progress);
-        // $scope.progressBar.currentValue = progressData.loaded;
-        // $scope.progressBar.max = progressData.total;
+        $scope.progressBar.currentValue = progress.loaded;
+        $scope.progressBar.max = progress.total;
+        $scope.$apply();
     };
 
     $scope.onPassword = function (updatePasswordFn, passwordResponse) {
