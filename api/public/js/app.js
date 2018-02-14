@@ -85,7 +85,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     var selected = null;
 
     //$scope.pdfPassword = 'test';
-    $scope.progressBar = {'currentValue': 0, 'max': 0};
+    $scope.progressBar = {'currentValue': 0, 'max': 100};
     $scope.scroll = 0;
     $scope.loading = 'loading';
     $scope.documentLoaded = false;
