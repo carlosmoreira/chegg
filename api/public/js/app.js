@@ -97,6 +97,15 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
         window.scroll(0, 0);
     });
 
+    var setChangePageListeners = function(){
+        angular.element(document).bind('keyup', function (e) {
+            if (e.keyCode == 39)
+                $scope.goNext();
+            else if (e.keyCode == 37)
+                $scope.goPrevious();
+        });
+    };
+
     $scope.init = function () {
         if(pageCheckInterval)
             $interval.cancel(pageCheckInterval);
@@ -111,6 +120,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
         $scope.pageNum = selected.pageNum;
         $scope.selectedBook = selected;
         maxPageRead = selected.pageNum;
+        setChangePageListeners();
     };
 
     $scope.setMaxPage = function () {
@@ -127,7 +137,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
                 },
                 function (error) {
                     console.log('updateBook',error);
-                });
+                }); 
     };
 
     $scope.getNavStyle = function (scroll) {
