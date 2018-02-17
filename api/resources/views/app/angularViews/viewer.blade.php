@@ -17,19 +17,16 @@
 
 @{{loading}}
 
-<div id="pdfNav" class="navbar-fixed-bottom">
-    <span id="pagePrev"
-       class="changePage"
-       ng-click="goPrevious()">
-        <i class="fa fa-arrow-circle-left fa-3x"></i>
-    </span>
-    <span id="pageNext"
-       class="changePage"
-       >
-        <i ng-click="goNext()" class="fa fa-arrow-circle-right fa-3x"></i>
-    </span>
-    <div class="row">
-        <div class="col-md-2"></div>
+<div id="pdfNav" class="navbar-fixed-top" style="max-width:55%; margin: auto">
+    <div class="">
+        <div class="col-md-1">
+            <span id="pagePrev"
+                  class="changePage"
+                  ng-click="goPrevious()">
+                <i class="fa fa-arrow-circle-left fa-3x"></i>
+            </span>
+
+        </div>
         <div class="col-md-3">
             <div ng-if="selectedBook.chapters">
                 <label for="chapters">Chapters</label>
@@ -53,7 +50,7 @@
                 <i class="fa fa-2x fa-search-minus cursor-pointer" ng-click="zoomOut()"></i>
             </p>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <label for="inputPageNum">Go to Page:</label>
             <div class="input-group">
                 <input id="inputPageNum" type="text" ng-model="inputPageNum" class="form-control"
@@ -63,12 +60,18 @@
                 </span>
             </div><!-- /input-group -->
         </div>
-        <!--<div class="col-md-3"></div>-->
-        <div class="col-md-3">
+
+        <div class="col-md-2">
             <label for="" style="color:rgb(79, 82, 186)">.</label>
             <div class="input-group text-center">
                 <button class="btn btn-primary whiteBtn" ng-click="setMaxPage()">Set Max Page</button>
             </div>
+        </div>
+        <div class="col-md-1">
+            <span id="pageNext"
+                  class="changePage">
+                <i ng-click="goNext()" class="fa fa-arrow-circle-right fa-3x"></i>
+            </span>
         </div>
     </div>
 </div>
