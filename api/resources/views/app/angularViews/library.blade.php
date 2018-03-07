@@ -8,10 +8,13 @@
                 Loading...
             </div>
             <div ng-show="pageLoaded" id="books" class="row" ng-show="pageLoaded">
-                <div ng-repeat="book in books" class="col-md-3 col-xs-6 bookBlock book">
-                    <a class="thumbnail" ng-click="selectBook(book)">
-                        <img ng-src="@{{getImage(book)}}" alt="">
-                    </a>
+                <div ng-repeat="book in books">
+                    <div class="clearfix" ng-if="($index) % 4 == 0"></div>
+                    <div class="col-md-3 col-xs-6 bookBlock book">
+                        <a class="thumbnail" ng-click="selectBook(book)">
+                            <img ng-src="@{{getImage(book)}}" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
