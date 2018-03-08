@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Book;
-use App\Chegg\ImagickHelper;
+use App\Http\Requests\AddBookRequest;
+use App\Repositories\Book\BookRepository;
 use Faker\Provider\File;
 use Illuminate\Database\Eloquent\MassAssignmentException;
 use Illuminate\Database\QueryException;
@@ -14,6 +15,14 @@ use Mockery\Exception;
 
 class BookController extends Controller
 {
+    private $books;
+    /**
+     *  @todo: Retrieve the book repository from the IOC 
+     */
+    public function __construct(BookRepository $bookRepository){
+        $this->books = $bookRepository;
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
      */
@@ -37,53 +46,19 @@ class BookController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param AddBookRequest $request
+     * @return array
      */
-    public function store(Request $request)
+    public function store(AddBookRequest $request)
     {
         try{
-
             ini_set('max_execution_time', '3000');
-            $book = new Book();
-            $book->name = $request->get('name');
-            if($request->hasFile('bookPdfFile'))
-                $file = $request->file('bookPdfFile');
-            else
-                throw new Exception('File is required');
-
-            $fileName = str_random();
-            $book->file = $fileName;
-            $pdfsStorage = storage_path() . '/pdfs/';
-            $savePdfAs = $fileName . '.pdf';
-            /**
-             * @var UploadedFile $file
-             */
-            if($file)
-                $file->move( $pdfsStorage , $savePdfAs );
-            else
-                throw new Exception('Error uploading file');
-
-            //After the file is moved over into the storage/pdfs directory,
-            //retrieve it with imagick and save the first page of the pdf as an image.
-
-            $imageSaved = ImagickHelper::ConvertNSave($pdfsStorage,$savePdfAs,$fileName);
-
-            if($imageSaved)
-                $book->image = $imageSaved;
-
-            if($book->save()    )
-                return redirect('books/manage')->with('success',"Book saved successfully");
-            else
-                throw new Exception('unable to save book');
+            $this->books->store($request);
+            return ['redirectUrl' => 'books/manage', 'success' => 'Book saved successfully'];
         }catch (QueryException $exception){
-            //return view('ook/addEdit', ['book' => new Book()]);
-            return back()->with(['error' => $exception->getMessage()])->withInput();
+            return ['error' => $exception->getMessage()];
         }catch (Exception $exception){
-            //variant_and($exception->getMessage());die();
-            return back()->with(['error' => $exception->getMessage()])->withInput();
+            return ['error' => $exception->getMessage()];
         }
     }
 
