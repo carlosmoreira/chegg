@@ -1,5 +1,5 @@
 <div class="appContainer" id="books" ng-controller="LibraryCtrl" ng-init="init()">
-    <div class="panel panel-primary widget-shadow">
+    <div class="panel panel-default widget-shadow">
         <div class="panel-heading">
             <h2 class="panel-title">Library</h2>
         </div>
