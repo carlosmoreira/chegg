@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+
     /**
      * The attributes that are mass assignable.
      *
@@ -13,11 +14,18 @@ class Book extends Model
      */
     protected $fillable = ['name', 'pageNum'];
 
-    public function chapters(){
+    public function chapters()
+    {
         return $this->hasMany('App\Chapter');
     }
 
-    public function notes(){
+    public function notes()
+    {
         return $this->hasMany('App\Note');
     }
+
+    public function createBookmark($data){
+        return $this->notes()->create($data);
+    }
+
 }

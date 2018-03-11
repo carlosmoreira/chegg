@@ -9,9 +9,6 @@ app.config(function ($routeProvider,$httpProvider) {
         .when("/read", {
             templateUrl: "views/read",
             controller: "PDFCtrl"
-        })
-        .when("/paris", {
-            templateUrl: "paris.htm"
         });
 });
 app.run(function ($rootScope, $templateCache) {
@@ -35,6 +32,7 @@ app.service('Library', function () {
     var setSelected = function (doc) {
         selected = doc;
     };
+
     return {
         getDocuments: getDocuments,
         setDocuments: setDocuments,
@@ -67,6 +65,7 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService)
     };
 
     $scope.selectBook = function (book) {
+        //console.log('thebook', book);
         Library.setSelected(book);
         $location.path('/read')
     };
@@ -77,6 +76,25 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService)
         return "/images/pdf/" + document.image;
     }
 });
+
+app.controller('ModalCtrl', function ($scope, $uibModalInstance, BookHttpService, bookId, pageNum) {
+
+    $scope.running = false;
+
+    $scope.createBookmark = function () {
+        $scope.running = true;
+        $scope.bookmark.page = pageNum;
+        BookHttpService.createBookmark(bookId, $scope.bookmark,
+            function (response) {
+                //console.log('createbook response: ', response);
+                if(response.data.Success){
+                    $uibModalInstance.close(response.data.bookmark);
+                }
+                $scope.running = false;
+            }, function (response) {$scope.running = false;});
+    }
+});
+
 app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Library, BookHttpService) {
 
     var maxPageRead = null;
@@ -90,6 +108,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     $scope.loading = 'loading';
     $scope.documentLoaded = false;
     $scope.pageNum = "1";
+    $scope.bookmark = {};
 
     $scope.$watch('pageNum', function (newVal) {
         //console.log('currentValue', newVal);
@@ -182,7 +201,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
 
     //Updates per every progress
     $scope.onProgress = function (progress) {
-        console.log('ProgressData', progress);
+        //console.log('ProgressData', progress);
         $scope.progressBar.currentValue = progress.loaded;
         $scope.progressBar.max = progress.total;
         $scope.$apply();
@@ -213,31 +232,50 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'myModalContent.html',
-            controller: 'PDFCtrl',
+            controller: 'ModalCtrl',
             controllerAs: '$ctrl',
             size: size,
             appendTo: parentElem,
             resolve: {
-                items: function () {
-                    return [];
+                pageNum : function () {
+                    return $scope.pageNum;
+                },
+                bookId : function () {
+                    return Library.getSelected().id;
                 }
             }
         });
 
-        modalInstance.result.then(function (selectedItem) {
-            //$ctrl.selected = selectedItem;
+        modalInstance.result.then(function (bookmark) {
+            console.log('adding bookmark: ', bookmark);
+            $scope.selectedBook.notes.push(bookmark);
         }, function () {
             //$log.info('Modal dismissed at: ' + new Date());
         });
     };
+
 });
+
 
 app.service('BookHttpService', function (HttpService) {
     var updateBook = function (id, data, success, fail) {
-        console.log('calling', '/books/' + id);
+        //console.log('calling', '/books/' + id);
         return HttpService.post('/books/' + id , data, success, fail);
     };
+    var createBookmark = function (bookId, data, success, fail) {
+        //console.log('creating bookmark..', data);
+        return HttpService.post('/books/'+bookId +'/createBookmark', data, success, fail);
+    };
     return {
-        updateBook : updateBook
+        updateBook : updateBook,
+        createBookmark : createBookmark
     }
+});
+
+app.controller('uploadCtrl', function ($scope,HttpService) {
+    $scope.create = function () {
+        alert('sdf');
+    }
+
+    return false;
 });

@@ -14,12 +14,15 @@
  *
  * Todo:
  *
- * Goal - Finish by end of January
+ * REFACTORing
+ * Cean up controllrs
+ *     - implement Repository pattern
+ *     - Change PDF create to an observer??
+ *     - on store method inplemetn request class
+ * 
  * Numbers only on 'go to page'
  * Book filter
  * Replace image with self
- *  - Idea, hang it from the top, with a button on the top menu to hide/close the nav
- * Clever way to hide bottom bar
  *
  * Save on next page or page change
  *  Client and Server
@@ -50,6 +53,8 @@ Route::prefix('views')->group(function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::post('books/{book}/createBookmark', 'BookController@createBookmark');
     Route::get('books/manage', 'BookController@manage');
     Route::resource('books', 'BookController');
+    Route::resource('bookmarks', 'NoteController');
 });

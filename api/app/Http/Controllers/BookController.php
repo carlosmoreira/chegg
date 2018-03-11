@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\AddBookRequest;
+use App\Http\Requests\CreateBookmarkRequest;
 use App\Repositories\Book\BookRepository;
 use Faker\Provider\File;
 use Illuminate\Database\Eloquent\MassAssignmentException;
@@ -143,5 +144,10 @@ class BookController extends Controller
         }catch (Exception $e){
             return redirect('books/manage')->with('error',$e->getMessage());
         }
+    }
+
+    public function createBookmark(Book $book, CreateBookmarkRequest $request){
+        $bookmark =$book->createBookmark($request->all());
+        return ['Success' => 'Ok', 'bookmark'=> $bookmark];
     }
 }

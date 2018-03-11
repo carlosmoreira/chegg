@@ -82,7 +82,7 @@ ul.notes li div {
     text-decoration: none;
     color: #000;
     display: block;
-    height: 210px;
+    /*height: 210px;*/
     width: 210px;
     padding: 1em;
     -moz-box-shadow: 5px 5px 7px #212121;

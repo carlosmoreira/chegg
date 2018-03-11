@@ -30,19 +30,18 @@
         <h4>Page Number: @{{pageNum}}</h4>
         <hr>
         <h3>
-            Notes:
-            <span style="text-decoration: underline;font-size: 15px;" ng-click="openAddNoteModal('sm')">
-                <i>Add Note</i>
-            </span>
+            <a class="" ng-click="openAddNoteModal('lg')">
+                <i class="fa fa-plus-circle"></i>
+            </a>
+            Bookmarks
+            <hr>
         </h3>
         <ul class="notes">
             <li ng-repeat="note in selectedBook.notes"
                 ng-if="note.page == pageNum">
                 <div class="rotate-1 lazur-bg">
-                    <!--<small>12:03:28 12-04-2014</small>-->
-                    <!--<h4>Awesome title</h4>-->
                     <p>@{{note.note}}</p>
-                    <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
+                    <a href="#" class="text-danger pull-right" style="margin-top:-10px;"><i class="fa fa-trash-o "></i></a>
                 </div>
             </li>
         </ul>
@@ -51,18 +50,22 @@
 
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">New Note</h3>
+        <h3 class="modal-title" id="modal-title">New Bookmark</h3>
     </div>
     <div class="modal-body" id="modal-body">
         <form name="newNoteForm">
             <div class="form-group">
-                <label for="note">Note:</label>
-                <textarea name="note" id="note" cols="30" rows="10" required></textarea>
+                <label for="note">Bookmark:</label>
+                <textarea ng-disabled="running" class="form-control" rows="5" id="bookmark" required ng-model="bookmark.note">
+                    Bookmark...
+                </textarea>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-primary" type="button" ng-disabled="running" ng-click="createBookmark()">
+            Save <i class="fa fa-spin fa-spinner" ng-show="running"></i>
+        </button>
         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
     </div>
 </script>
