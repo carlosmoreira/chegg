@@ -3,11 +3,11 @@ app.config(function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     $routeProvider
         .when("/", {
-            templateUrl: "views/library",
+            templateUrl: "/views/library",
             controller: "LibraryCtrl"
         })
         .when("/read", {
-            templateUrl: "views/read",
+            templateUrl: "/views/read",
             controller: "PDFCtrl"
         });
 });
