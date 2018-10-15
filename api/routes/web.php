@@ -32,6 +32,11 @@
  * New button to set max page read
  */
 
+
+Route::get('/info', function () {
+    phpinfo();
+});
+
 Route::get('/', function () {
     return view('app/index');
 })->middleware('auth');
