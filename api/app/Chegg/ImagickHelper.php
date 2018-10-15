@@ -21,7 +21,7 @@ class ImagickHelper
     public static function ConvertNSave($pdfsStorage, $savePdfAs, $fileName)
     {
         try {
-            $im = new \imagick($pdfsStorage . $savePdfAs . '[0]');
+            $im = new \Imagick($pdfsStorage . $savePdfAs . '[0]');
             $im->setImageFormat(self::SAVE_IMG_TYPE);
             $im->trimImage(20000);
             //$im->resizeImage('350', '500',\Imagick::FILTER_LANCZOS, 1, true);
