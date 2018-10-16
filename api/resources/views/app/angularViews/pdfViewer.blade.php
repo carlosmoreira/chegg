@@ -1,5 +1,5 @@
 <div class="row" ng-controller="PDFCtrl" ng-init="init()">
-    <div class="col-md-9">
+    <div class="" ng-class="(showBookmarks) ? 'col-md-9' : 'col-md-12'">
         <div class="wrapper" >
             <div ng-show="error">
                 <div class="alert alert-danger">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3" ng-show="documentLoaded">
+    <div class="col-md-3" ng-show="documentLoaded" ng-show="showBookmarks">
         <h2 style="font-family: cursive">@{{pdfName}}</h2>
         <h4>Page Number: @{{pageNum}}</h4>
         <hr>
@@ -33,7 +33,7 @@
             <a class="" ng-click="openAddNoteModal('lg')">
                 <i class="fa fa-plus-circle"></i>
             </a>
-            Bookmarks
+            Bookmarks @{{showBookmarks}}
             <hr>
         </h3>
         <ul class="notes">

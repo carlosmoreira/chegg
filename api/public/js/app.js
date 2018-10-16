@@ -106,6 +106,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     $scope.documentLoaded = false;
     $scope.pageNum = "1";
     $scope.bookmark = {};
+    $scope.showBookmarks = false;
 
     $scope.$watch('pageNum', function (newVal) {
         window.scroll(0, 0);
@@ -129,12 +130,18 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
             return;
         }
         selected = Library.getSelected();
+        console.log('selected', JSON.stringify(selected));
         $scope.pdfName = selected.name;
         $scope.pdfUrl =  "/file/pdf/" + selected.file;
         $scope.pageNum = selected.pageNum;
         $scope.selectedBook = selected;
         maxPageRead = selected.pageNum;
         setChangePageListeners();
+    };
+
+    $scope.changeBookMarks = function () {
+        $scope.showBookmarks = !$scope.showBookmarks;
+        $scope.fit();
     };
 
     $scope.setMaxPage = function () {

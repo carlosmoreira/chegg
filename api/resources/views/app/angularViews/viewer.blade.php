@@ -1,19 +1,3 @@
-<!--<nav ng-class="getNavStyle(scroll)">-->
-<!--&lt;!&ndash;<button ng-click="goPrevious()"><span>&lt;</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;<button ng-click="goNext()"><span>&gt;</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;<button ng-click="zoomIn()"><span>+</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;<button ng-click="fit()"><span>100%</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;<button ng-click="zoomOut()"><span>-</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;<button ng-click="rotate()"><span>90</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;<h4>&ndash;&gt;-->
-<!--&lt;!&ndash;<span>Page: @{{pageNum}}</span>&ndash;&gt;-->
-<!--&lt;!&ndash;</h4>&ndash;&gt;-->
-<!--&lt;!&ndash;<input type="text" min=1 ng-model="pageNum">&ndash;&gt;-->
-<!--&lt;!&ndash;<span> / @{{pageCount}}</span>s&ndash;&gt;-->
-<!--&nbsp;&nbsp;-->
-<!--&lt;!&ndash;<span>Document URL: </span>&ndash;&gt;-->
-<!--&lt;!&ndash;<input type="text" ng-model="pdfUrl">&ndash;&gt;-->
-<!--</nav>-->
 
 @{{loading}}
 
@@ -62,7 +46,9 @@
         </div>
 
         <div class="col-md-2">
-            <label for="" style="color:rgb(79, 82, 186)">.</label>
+            <button class="btn btn-primary whiteBtn" ng-click="changeBookMarks()">
+                Bookmarks
+            </button>
             <div class="input-group text-center">
                 <button class="btn btn-primary whiteBtn" ng-click="setMaxPage()">Set Max Page</button>
             </div>
