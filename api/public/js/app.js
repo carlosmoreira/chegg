@@ -65,7 +65,6 @@ app.controller('LibraryCtrl', function ($scope, $location, Library, HttpService)
     };
 
     $scope.selectBook = function (book) {
-        //console.log('thebook', book);
         Library.setSelected(book);
         $location.path('/read')
     };
@@ -86,7 +85,6 @@ app.controller('ModalCtrl', function ($scope, $uibModalInstance, BookHttpService
         $scope.bookmark.page = pageNum;
         BookHttpService.createBookmark(bookId, $scope.bookmark,
             function (response) {
-                //console.log('createbook response: ', response);
                 if(response.data.Success){
                     $uibModalInstance.close(response.data.bookmark);
                 }
@@ -102,7 +100,6 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     var pageCheckInterval = null;
     var selected = null;
 
-    //$scope.pdfPassword = 'test';
     $scope.progressBar = {'currentValue': 0, 'max': 100};
     $scope.scroll = 0;
     $scope.loading = 'loading';
@@ -111,8 +108,6 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     $scope.bookmark = {};
 
     $scope.$watch('pageNum', function (newVal) {
-        //console.log('currentValue', newVal);
-        //On page update, call ajax request and save to
         window.scroll(0, 0);
     });
 
@@ -135,7 +130,7 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
         }
         selected = Library.getSelected();
         $scope.pdfName = selected.name;
-        $scope.pdfUrl =  "/file/pdf/" + selected.file;//"/pdf/cleancode.pdf";//
+        $scope.pdfUrl =  "/file/pdf/" + selected.file;
         $scope.pageNum = selected.pageNum;
         $scope.selectedBook = selected;
         maxPageRead = selected.pageNum;
@@ -173,8 +168,9 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     var maxPageCheck = function(){
         pageCheckInterval = $interval(function () {
             var currentPageNumber = $scope.pageNum;
-            //console.log('current page is ' , currentPageNumber);
-            //console.log('Our max page is', maxPageRead);
+            book = Library.getSelected();
+            book.pageNum = currentPageNumber;
+            Library.setSelected(book);
             if(currentPageNumber > maxPageRead){
                 maxPageRead = currentPageNumber;
                 BookHttpService
@@ -201,7 +197,6 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
 
     //Updates per every progress
     $scope.onProgress = function (progress) {
-        //console.log('ProgressData', progress);
         $scope.progressBar.currentValue = progress.loaded;
         $scope.progressBar.max = progress.total;
         $scope.$apply();
@@ -220,7 +215,6 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
     };
 
     $scope.goToBookmarkPage = function (pageNum) {
-        //console.log('Bookmark page', pageNum);
         $scope.goToPage(pageNum);
     };
 
@@ -259,11 +253,9 @@ app.controller('PDFCtrl', function ($scope, $location,$interval,$uibModal, Libra
 
 app.service('BookHttpService', function (HttpService) {
     var updateBook = function (id, data, success, fail) {
-        //console.log('calling', '/books/' + id);
         return HttpService.post('/books/' + id , data, success, fail);
     };
     var createBookmark = function (bookId, data, success, fail) {
-        //console.log('creating bookmark..', data);
         return HttpService.post('/books/'+bookId +'/createBookmark', data, success, fail);
     };
     return {
